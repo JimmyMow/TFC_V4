@@ -19,10 +19,11 @@ end
 
 def create
   @c = Comment.new
-    @c.content = params[:content]
-    @c.user_id = params[:user_id]
-    @c.post_id = params[:post_id]
-    @c.save
+  @c.content = params[:content]
+  @c.user_id = params[:user_id]
+  @c.post_id = params[:post_id]
+  @c.submitter_id = params[:submitter_id]
+  @c.save
 
     respond_to do |format|
       format.html { redirect_to post_url(params[:post_id]) }
