@@ -1,0 +1,182 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@mixin group {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+//Imports
+
+//Variables
+$post-title: 18px;
+$post-details: 10px;
+// Index
+.posts-container {
+   width: 50%;
+   margin: 0 auto;
+}
+
+ .home-title {
+  text-align: center;
+
+  h1 {
+    margin-bottom: 50px;
+  }
+ }
+
+ .pagination {
+  text-align: center;
+  padding-top: 25px;
+  margin-bottom: 25px;
+ }
+
+.post {
+  border-bottom: 1px solid black;
+  position: relative;
+
+  &:before {
+    // content:'1';
+    position: absolute;
+    left: -40px;
+    top: 30%;
+    font-size: 24px;
+  }
+
+  &:after {
+    @include group;
+  }
+
+  section {
+    float: left;
+
+      .post-title {
+        font-size: $post-title;
+
+        a {
+          text-decoration: none;
+          color: black;
+
+          &:hover {
+            color: white;
+          }
+        }
+      }
+
+      .post-details {
+        font-size: $post-details;
+      }
+  }
+
+  .score {
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+  aside {
+    float: right;
+  }
+}
+
+// Show
+.show-post {
+  text-align: center;
+}
+
+form {
+  padding-top: 25px;
+  label {
+    display: block;
+  }
+
+  button {
+    display: block;
+  }
+}
+
+.comments {
+  padding-top: 25px;
+
+  .comment {
+    border-bottom: 1px solid black;
+
+    &:after {
+      @include group;
+    }
+
+    section {
+      float: left;
+    }
+
+    aside {
+      float: right;
+
+      .score {
+        font-size: 15px;
+        font-weight: bold;
+      }
+    }
+
+    .comment-user-info {
+      font-weight: 400;
+      font-size: 14px;
+
+      i {
+        font-size: 11px;
+      }
+
+    }
+
+    .comment-content {
+      font-size: 15px;
+    }
+  }
+}
+
+// New
+$label-width: 20%;
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .semi-info {
+
+    p {
+      text-align: center;
+    }
+
+    .semi-title {
+      font-weight: bold;
+      font-size: 15px;
+    }
+  }
+
+.form-container {
+  width: 40%;
+  margin: 0 auto;
+
+  form {
+    padding-top: 40px;
+  }
+
+  .field {
+
+    label {
+      display: inline-block;
+      vertical-align: top;
+      width: $label-width;
+    }
+    textarea {
+      width: 90% - $label-width;
+    }
+  }
+  .actions {
+
+    input {
+      float: right;
+    }
+  }
+}

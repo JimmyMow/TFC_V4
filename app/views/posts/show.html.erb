@@ -1,0 +1,32 @@
+<div class="posts-container">
+  <section class="show-post">
+    <p id="notice"><%= notice %></p>
+
+    <h1><%= @post.title %></h1>
+
+    <p><%= @post.description %></p>
+    <p><%= link_to @post.url, "#{@post.url}" %></p>
+
+
+  </section>
+    <%= link_to 'Back', posts_path %>
+
+  <%= render 'comment_form', post: @post if current_user %>
+
+  <section class='comments'>
+    <% @post.comments.reverse.each do |comment| %>
+      <div class="comment">
+        <section>
+          <p class='comment-user-info'><%= link_to comment.user.email, user_url(comment.user.id) %> <i>-- <%= time_ago_in_words(comment.created_at) %></i></p>
+          <p class='comment-content'><%= comment.content %></p>
+        </section>
+
+        <aside>
+          <% if current_user && !current_user.voted_on?(comment) %>
+            <p class='voting'><%= link_to "upvote", upvote_comment_url(comment.id), :method => 'post' %> | <%= link_to 'downvote', downvote_comment_url(comment.id), :method => 'post' %></p>
+          <% end %>
+          <p class='score'><%= pluralize(comment.votes.count, 'votes') %></p>
+        </aside>
+      </div>
+    <% end %>
+  </section>

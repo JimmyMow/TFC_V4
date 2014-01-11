@@ -1,0 +1,21 @@
+<div class="posts-container">
+  <div class='home-title'><h1>FansChallenge: Talk sports with the world.</h1>
+    <h2>Most popular posts</h2>
+    <%= link_to "Add a post", new_post_url %>
+  </div>
+  <% @posts.each do |post| %>
+    <div class='post'>
+      <section>
+        <p class='post-title'><%= link_to post.title, post_url(post.id) %></p>
+        <p class='post-details'>created <%= time_ago_in_words(post.created_at) %> <%= link_to post.user.email, user_url(post.user.id) %></p>
+      </section>
+      <aside>
+        <% if current_user.present? && !current_user.voted_on?(post) %>
+          <p class='voting'><%= link_to "upvote", upvote_post_url(post.id), :method => 'post' %> | <%= link_to 'downvote', downvote_post_url(post.id), :method => 'post' %></p>
+        <% end %>
+          <p class='score'><%= pluralize(post.votes.count, 'vote') %></p>
+      </aside>
+    </div>
+  <% end %>
+</div>
+
