@@ -12,8 +12,8 @@
   <nav>
     <p class="nav-links">
       <%= link_to '<i class="fa fa-home"></i>'.html_safe, posts_url %> |
-      <%= link_to 'top challenges', "#" %> |
-      <%= link_to 'others', "#" %>    |
+      <%= link_to 'top posts', posts_url %> |
+      <%= link_to 'new posts', posts_url %>    |
     </p>
       <label for="tags">Search: </label>
       <input id="tags">
@@ -24,7 +24,8 @@
         <%= link_to "Logout", destroy_user_session_path, method: :delete %>
       <% else %>
         <%= link_to "Sign up", new_user_registration_path %> |
-        <%= link_to "Login", new_user_session_path %>
+        <%= link_to "Login", new_user_session_path %> |
+        <%= link_to "Sign in with twitter", user_omniauth_authorize_path(:twitter) %>
       <% end %>
     </p>
   </nav>

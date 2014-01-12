@@ -7,7 +7,7 @@
     <div class='post'>
       <section>
         <p class='post-title'><%= link_to post.title, post_url(post.id) %></p>
-        <p class='post-details'>created <%= time_ago_in_words(post.created_at) %> <%= link_to post.user.email, user_url(post.user.id) %></p>
+        <p class='post-details'>created <%= time_ago_in_words(post.created_at) %> ago  by <%= link_to post.user.email, user_url(post.user.id) %></p>
       </section>
       <aside>
         <% if current_user.present? && !current_user.voted_on?(post) %>

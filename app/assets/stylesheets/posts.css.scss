@@ -164,6 +164,15 @@ $label-width: 20%;
 
   .field {
 
+    p {
+      margin-left: $label-width;
+      margin-top: 0px;
+      font-size: 10px;
+      font-style: italic;
+      border: 1px;
+      padding: 2px;
+    }
+
     label {
       display: inline-block;
       vertical-align: top;
@@ -171,6 +180,7 @@ $label-width: 20%;
     }
     textarea {
       width: 90% - $label-width;
+      margin-bottom: 0px;
     }
   }
   .actions {

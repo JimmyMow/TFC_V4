@@ -7,7 +7,7 @@ TFCV4::Application.routes.draw do
     member { post :downvote }
   end
   # Users
-  devise_for :users
+  devise_for :user, controllers: {omniauth_callbacks: 'omniauth_callbacks'}
   get '/users/:id' => 'users#show', as: 'user'
   #Comment
   resources :comments do

@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+#Twitter
+gem 'omniauth-twitter'
 #Voting
 gem 'thumbs_up'
 #Devise
