@@ -1,4 +1,4 @@
-<%= form_tag comments_url, method: 'post' do %>
+<%= form_tag comments_url, method: 'post', :id => 'comment-form' do %>
   <%= label_tag :content, 'Comment:' %>
   <%= text_area_tag :content, nil, :rows => '5', :cols => '70' %>
 

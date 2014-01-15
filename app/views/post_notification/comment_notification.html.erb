@@ -1,0 +1,5 @@
+<h1>Hey, <%= @user.username %></h1>
+
+<p><%= @commenter.username %> just commented "<%= @comment.content %>" on your post <%= link_to @post.title, post_url(@post.id) %></p>
+
+<p>Click here to respond: <%= link_to post_url(@post.id), post_url(@post.id) %></p>

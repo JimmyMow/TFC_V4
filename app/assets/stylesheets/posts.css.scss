@@ -88,8 +88,9 @@ $post-details: 10px;
   text-align: center;
 }
 
-form {
+#comment-form {
   padding-top: 25px;
+
   label {
     display: block;
   }
@@ -163,6 +164,10 @@ $label-width: 20%;
   form {
     padding-top: 40px;
   }
+
+  // h6 {
+  //   margin-left: 20%;
+  // }
 
   .field {
 

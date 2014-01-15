@@ -10,7 +10,7 @@ class PostsController < ApplicationController
     elsif params[:new_post]
       @posts = Post.order('created_at DESC').page(params[:page]).per(5)
     else
-      @posts = Post.all.sort_by { |p| p.votes_for }.reverse
+      @posts = Post.all.sort_by { |p| p.votes_for }.reverse.slice(0, 10)
     end
   end
 
@@ -92,6 +92,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :description, :url, :user_id, :category_id, :submitter_id)
+      params.require(:post).permit(:title, :description, :url, :user_id, :category_id, :submitter_id, :notification)
     end
 end

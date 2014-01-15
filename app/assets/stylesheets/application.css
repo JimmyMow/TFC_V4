@@ -12,7 +12,10 @@
  *= require_tree .
  */
 .container {
-  margin: 30px;
+   width: 70%;
+   margin: 0 auto;
+   clear: both;
+   padding-top: 2%;
 }
 nav {
   clear: both;

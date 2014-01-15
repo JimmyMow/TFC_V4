@@ -26,6 +26,10 @@ def create
   @c.submitter_id = params[:submitter_id]
   @c.save
 
+  if @c.post.notification
+    PostNotification.comment_notification(@c.post.user, @c.user, @c.post, @c).deliver
+  end
+
     respond_to do |format|
       format.html { redirect_to post_url(params[:post_id]) }
       format.json { head :no_content }

@@ -20,6 +20,7 @@
       <%= f.label :description %>
       <%= f.text_area :description, :rows => '5', :cols => '50' %>
       <p>Include links and pictures to help make a better post</p>
+      <h6>Recieve email notification when users comment <%= f.check_box :notification %></h6>
     </div>
 
     <%= f.hidden_field :user_id, :value => current_user.id %>
