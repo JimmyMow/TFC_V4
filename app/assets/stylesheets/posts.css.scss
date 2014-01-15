@@ -15,8 +15,10 @@ $post-title: 18px;
 $post-details: 10px;
 // Index
 .posts-container {
-   width: 50%;
+   width: 70%;
    margin: 0 auto;
+   clear: both;
+   padding-top: 2%;
 }
 
  .home-title {
@@ -77,6 +79,7 @@ $post-details: 10px;
 
   aside {
     float: right;
+    text-align: right;
   }
 }
 
@@ -155,7 +158,6 @@ $label-width: 20%;
   }
 
 .form-container {
-  width: 40%;
   margin: 0 auto;
 
   form {

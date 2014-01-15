@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
+#Pagination
+gem 'kaminari'
 #Twitter
 gem 'omniauth-twitter'
+gem 'twitter'
 #Voting
 gem 'thumbs_up'
 #Devise

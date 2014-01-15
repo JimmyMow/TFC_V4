@@ -5,7 +5,13 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    if params[:search]
+      @posts = Post.where("title LIKE ?", "%#{params[:search]}%")
+    elsif params[:new_post]
+      @posts = Post.order('created_at DESC').page(params[:page]).per(5)
+    else
+      @posts = Post.all.sort_by { |p| p.votes_for }.reverse
+    end
   end
 
   # GET /posts/1
@@ -70,6 +76,11 @@ class PostsController < ApplicationController
 
   def downvote
     current_user.vote_against(@post)
+    redirect_to :back
+  end
+
+  def tweet
+    current_user.twitter.update("#{params[:message]} via @FansChallenge")
     redirect_to :back
   end
 

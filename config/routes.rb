@@ -5,6 +5,7 @@ TFCV4::Application.routes.draw do
   resources :posts do
     member { post :upvote }
     member { post :downvote }
+    member { post :tweet }
   end
   # Users
   devise_for :user, controllers: {omniauth_callbacks: 'omniauth_callbacks'}

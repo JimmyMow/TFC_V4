@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TFCV4</title>
+  <title>FansChallenge</title>
   <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 </head>
 <body>
   <nav>
-    <p class="nav-links">
-      <%= link_to '<i class="fa fa-home"></i>'.html_safe, posts_url %> |
-      <%= link_to 'top posts', posts_url %> |
-      <%= link_to 'new posts', posts_url %>    |
-    </p>
-      <label for="tags">Search: </label>
-      <input id="tags">
+    <div class="nav-links">
+      <%= link_to 'FansChallenge', posts_url %> |
+      <%= form_tag posts_url, :method => 'get', :id => 'search-form' do %>
+        <%= label_tag :search, "Search:" %>
+        <%= text_field_tag :search %>
+        <%= submit_tag "search" %>
+      <% end %>
+    </div>
     <p class='user-nav'>
       <% if user_signed_in? %>
-        Logged in as <strong><%= current_user.email %></strong>.
+        <strong><%= current_user.username %></strong> |
         <%= link_to 'Edit profile', edit_user_registration_path %> |
         <%= link_to "Logout", destroy_user_session_path, method: :delete %>
       <% else %>
         <%= link_to "Sign up", new_user_registration_path %> |
-        <%= link_to "Login", new_user_session_path %> |
-        <%= link_to "Sign in with twitter", user_omniauth_authorize_path(:twitter) %>
+        <%= link_to "Login", new_user_session_path %>
       <% end %>
     </p>
   </nav>
