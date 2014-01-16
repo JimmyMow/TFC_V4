@@ -1,10 +1,13 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+// $(document).ready(function(){
+//     var path = $(location).attr('href')
+//     console.log(path);
+//     $('h2 a').each(function() {
+//         if( path === "http://localhost:3000/posts?new_post=true" ){
+//             $("#most_recent").addClass('active');
+//         } else {
+//             $('#most_popular').addClass('active');
+//         }
+//     });
+// });
 
-$(ducument).ready() {
-  $('.header_link').on('click', function() {
-      $(this).css({'font-size': 50px})
-      $(this).css({'font-weight': 5})
-    });
-};
+

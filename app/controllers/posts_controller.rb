@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :upvote, :downvote, :protect_user]
   before_filter :authenticate_user!, only: [:new, :upvote, :downvote]
-  before_action :set_post, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+  before_filter :protect_user, only: [:edit]
 
   # GET /posts
   # GET /posts.json
@@ -80,9 +81,16 @@ class PostsController < ApplicationController
   end
 
   def tweet
-    current_user.twitter.update("#{params[:message]} via @FansChallenge")
+    current_user.twitter.update("#{params[:message]} via @FansChallenge -->  #{post_url(params[:id])}")
     redirect_to :back
   end
+
+    #Make sure users only edit their posts
+    def protect_user
+      if current_user.id != @post.user.id
+        redirect_to post_url(@post.id), notice: "Sorry, you do not have the correct permission."
+      end
+    end
 
   private
     # Use callbacks to share common setup or constraints between actions.

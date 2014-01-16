@@ -86,6 +86,22 @@ $post-details: 10px;
 // Show
 .show-post {
   text-align: center;
+  border-bottom: 1px solid black;
+
+  .post-description {
+    margin-bottom: 40px;
+  }
+}
+
+nav {
+  ul {
+    padding: 0;
+    li {
+      list-style-type: none;
+      width: 20%;
+      margin: 0 auto;
+    }
+  }
 }
 
 #comment-form {
@@ -163,6 +179,11 @@ $label-width: 20%;
 
   form {
     padding-top: 40px;
+
+    h6 {
+      margin-left: $label-width;
+      width: 90% - $label-width;
+    }
   }
 
   // h6 {

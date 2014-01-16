@@ -1,7 +1,7 @@
 <div class="posts-container">
   <div class='home-title'>
     <h1>FansChallenge: Talk sports with the world.</h1>
-    <h2><%= link_to "Most popular posts", posts_url, :class => 'header_link' %> | <%= link_to "Most recent posts", posts_url(new_post: 'true'), :class => 'header_link' %></h2>
+    <h2><%= link_to "Most popular posts", posts_url, :class => 'header_link', :id => 'most_popular' %> | <%= link_to "Most recent posts", posts_url(new_post: 'true'), :class => 'header_link', :id => 'most_recent' %></h2>
     <%= link_to "Add a post", new_post_url %>
   </div>
   <% @posts.each do |post| %>
@@ -19,7 +19,7 @@
         <% if current_user && current_user.oauth_token %>
           <p><%= link_to "Tweet this", tweet_post_url(post.id, message: post.title), :method => 'post' %></p>
         <% elsif current_user %>
-          <%= link_to "Tweet this", user_omniauth_authorize_path(:twitter, user_id: current_user.id, tweet: 'yes'), :alert => 'First you must authorize your twitter.' %>
+          <%= link_to "Tweet this", user_omniauth_authorize_path(:twitter, user_id: current_user.id, tweet: 'yes', message: post.title, post_id: post.id), :alert => 'First you must authorize your twitter.' %>
         <% end %>
       </aside>
     </div>
