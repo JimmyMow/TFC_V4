@@ -3,7 +3,9 @@
     <p id="notice"><%= notice %></p>
     <h1>FansChallenge: Talk sports with the world.</h1>
     <div class='index-nav'>
-      <h3><%= link_to "Most popular posts", posts_url, :class => 'header_link', :id => 'most_popular' %> | <%= link_to "Most recent posts", posts_url(new_post: 'true'), :class => 'header_link', :id => 'most_recent' %></h3>
+      <h3>
+        <%= link_to "Most popular posts", posts_url, :class => 'header_link', :id => 'most_popular' %> |
+        <%= link_to "Most recent posts", posts_url(new_post: 'true'), :class => 'header_link', :id => 'most_recent' %></h3>
       <%= link_to "Create a post", new_post_url, :class => 'create-a-post' %>
     </div>
   </div>
