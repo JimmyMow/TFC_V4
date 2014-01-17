@@ -19,7 +19,31 @@ $post-details: 10px;
    margin: 0 auto;
    clear: both;
    padding-top: 2%;
+
+   .twitter-share-button {
+
+   }
+
+  h3 {
+    float: left;
+    margin-top: 0;
+  }
+
+  .create-a-post {
+    float: right;
+  }
+
+  .index-nav {
+    // border-bottom: 3px solid black;
+    margin-bottom: 30px;
+    &:after {
+        display: table;
+        clear: both;
+        content: "";
+    }
+  }
 }
+
 
  .home-title {
   text-align: center;
@@ -36,7 +60,7 @@ $post-details: 10px;
  }
 
 .post {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #ccc;
   position: relative;
 
   &:before {
@@ -53,6 +77,11 @@ $post-details: 10px;
 
   section {
     float: left;
+
+      .comment-count {
+        display: inline-block;
+        margin-top: 0;
+      }
 
       .post-title {
         font-size: $post-title;
@@ -80,26 +109,59 @@ $post-details: 10px;
   aside {
     float: right;
     text-align: right;
+
+    .tweet {
+        float: right;
+      }
   }
 }
 
 // Show
 .show-post {
   text-align: center;
-  border-bottom: 1px solid black;
+  border-bottom: 3px solid black;
+
+  h1 {
+    display: inline-block;
+    margin-top: 0;
+  }
+
+  a {
+    // float: right;
+  }
+
+  .edit-post {
+    float: right;
+  }
 
   .post-description {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+    text-align: left;
+    margin-top: 0;
   }
 }
 
 nav {
   ul {
     padding: 0;
-    li {
+    padding-bottom: 40px;
+      &:after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+
+    .share, .author {
       list-style-type: none;
-      width: 20%;
-      margin: 0 auto;
+    }
+
+    .share {
+      float: right;
+    }
+
+    .author {
+      float: left;
+      font-style: italic;
     }
   }
 }
@@ -118,9 +180,11 @@ nav {
 
 .comments {
   padding-top: 25px;
+  border-bottom: 3px solid black;
+  padding-bottom: 40px;
 
   .comment {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #ccc;
 
     &:after {
       @include group;
@@ -133,6 +197,10 @@ nav {
     aside {
       float: right;
 
+      .voting {
+        text-align: right;
+      }
+
       .score {
         font-size: 15px;
         font-weight: bold;
@@ -140,8 +208,7 @@ nav {
     }
 
     .comment-user-info {
-      font-weight: 400;
-      font-size: 14px;
+      font-size: 11px;
 
       i {
         font-size: 11px;
@@ -150,7 +217,8 @@ nav {
     }
 
     .comment-content {
-      font-size: 15px;
+      font-size: 17px;
+      font-weight: 500;
     }
   }
 }

@@ -1,28 +1,22 @@
-<div class="posts-container">
+<div class="container">
   <section class="show-post">
     <p id="notice"><%= notice %></p>
 
     <h1><%= @post.title %></h1>
+    <% if current_user && current_user.id == @post.user.id %>
+    <%= link_to "Edit", edit_post_url, :class => 'edit-post' %>
+    <% end %>
 
     <p class='post-description'><%= @post.description %></p>
 
     <nav>
       <ul>
-        <li>
+        <li class='author'>
           created by <%= link_to @post.user.username, user_url(@post.user.id) %>
         </li>
-        <li>
-          <% if current_user && current_user.oauth_token %>
-            <p><%= link_to "Tweet this", tweet_post_url(@post.id, message: @post.title), :method => 'post' %></p>
-          <% elsif current_user %>
-            <%= link_to "Tweet this", user_omniauth_authorize_path(:twitter, user_id: current_user.id, tweet: 'yes', message: @post.title, post_id: @post.id), :alert => 'First you must authorize your twitter.' %>
-          <% end %>
+        <li class='share'>
+          <a href="https://twitter.com/share?text=<%= @post.title %>" class="twitter-share-button" data-url="https://thefanschallenge.com/posts/<%= @post.id %>" data-via="FansChallenge" data-lang="en" data-count="none">Tweet</a>
         </li>
-        <% if current_user && current_user.id == @post.user.id %>
-        <li>
-          <%= link_to "Edit", edit_post_url(@post.id) %>
-        </li>
-        <% end %>
       </ul>
     </nav>
   </section>
@@ -37,12 +31,12 @@
           <p class='comment-content'><%= comment.content %></p>
         </section>
 
-           <aside>
+        <aside>
           <p class='score'><%= pluralize(comment.votes_for, 'upvote') %> | <%= pluralize(comment.votes_against, 'downvote') %></p>
-        <% if current_user.present? && !current_user.voted_on?(comment) %>
+          <% if current_user.present? && !current_user.voted_on?(comment) %>
           <p class='voting'><%= link_to "upvote", upvote_comment_url(comment.id), :method => 'post' %> | <%= link_to 'downvote', downvote_comment_url(comment.id), :method => 'post' %></p>
-        <% end %>
-      </aside>
+          <% end %>
+        </aside>
       </div>
     <% end %>
   </section>

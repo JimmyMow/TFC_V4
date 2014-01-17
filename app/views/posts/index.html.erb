@@ -1,26 +1,27 @@
 <div class="posts-container">
   <div class='home-title'>
+    <p id="notice"><%= notice %></p>
     <h1>FansChallenge: Talk sports with the world.</h1>
-    <h2><%= link_to "Most popular posts", posts_url, :class => 'header_link', :id => 'most_popular' %> | <%= link_to "Most recent posts", posts_url(new_post: 'true'), :class => 'header_link', :id => 'most_recent' %></h2>
-    <%= link_to "Add a post", new_post_url %>
+    <div class='index-nav'>
+      <h3><%= link_to "Most popular posts", posts_url, :class => 'header_link', :id => 'most_popular' %> | <%= link_to "Most recent posts", posts_url(new_post: 'true'), :class => 'header_link', :id => 'most_recent' %></h3>
+      <%= link_to "Add a post", new_post_url, :class => 'create-a-post' %>
+    </div>
   </div>
   <% @posts.each do |post| %>
     <div class='post'>
       <section>
         <p class='post-title'><%= link_to post.title, post_url(post.id) %></p>
-        <p class='post-details'>created <%= time_ago_in_words(post.created_at) %> ago by <%= link_to post.user.username, user_url(post.user.id) %></p>
+        <p class='post-details'><%= link_to post.user.username, user_url(post.user.id) %>  said this <%= time_ago_in_words(post.created_at) %> ago</p>
+        <p class='tweet'><a href="https://twitter.com/share?text=<%= post.title %>" class="twitter-share-button" data-url="https://thefanschallenge.com/posts/<%= post.id %>" data-via="FansChallenge" data-lang="en" data-count="none">Tweet</a></p>
       </section>
       <aside>
           <p class='score'><%= pluralize(post.votes_for, 'upvote') %> | <%= pluralize(post.votes_against, 'downvote') %></p>
         <% if current_user.present? && !current_user.voted_on?(post) %>
           <p class='voting'><%= link_to "upvote", upvote_post_url(post.id), :method => 'post' %> | <%= link_to 'downvote', downvote_post_url(post.id), :method => 'post' %></p>
         <% end %>
-
-        <% if current_user && current_user.oauth_token %>
-          <p><%= link_to "Tweet this", tweet_post_url(post.id, message: post.title), :method => 'post' %></p>
-        <% elsif current_user %>
-          <%= link_to "Tweet this", user_omniauth_authorize_path(:twitter, user_id: current_user.id, tweet: 'yes', message: post.title, post_id: post.id), :alert => 'First you must authorize your twitter.' %>
-        <% end %>
+        <p class='comment-count'>
+          <%= link_to pluralize(post.comments.count, 'comment'), post_url(post.id) %>
+        </p>
       </aside>
     </div>
   <% end %>
