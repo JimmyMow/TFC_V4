@@ -7,6 +7,11 @@
       <%= link_to "Create a post", new_post_url, :class => 'create-a-post' %>
     </div>
   </div>
+
+  <% if params[:search] %>
+    <p class='search-paragraph'><%= pluralize(@posts.count, 'result') %> for "<%= "#{params[:search]}" %>"</p>
+  <% end %>
+
   <% @posts.each do |post| %>
     <div class='post'>
       <section>

@@ -40,8 +40,9 @@ nav {
 }
 
 .active {
-  background: orange;
-  color: blue;
+  background: black;
+  color: white;
+  font-size: 18px;
 }
 
 
