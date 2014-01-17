@@ -1,4 +1,14 @@
 <div class="container">
-  <h1>Email: <%= @user.email %></h1>
-  <h4>Karma:</h4>
+  <aside class='about-user'>
+    <h2><%= @user.username %></h2>
+    <h4>Karma: <%= @user.karma %></h4>
+    <p class='user-since'>Became a fan <%= time_ago_in_words(@user.created_at) %> ago</p>
+  </aside>
+
+  <div class='activity'>
+    <section='posts'>
+
+    </section>
+
+  </div>
 </div>
