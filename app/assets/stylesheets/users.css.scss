@@ -1,0 +1,35 @@
+//Show
+.about-user {
+  width: 25%;
+  display: inline-block;
+  float: left;
+  // border-right: 2px solid #ccc;
+  .user-since {
+    color: gray;
+    font-style: italic;
+  }
+}
+
+.activities {
+  width: 60%;
+  display: inline-block;
+  float: left;
+  border-left: 2px solid #ccc;
+
+    section {
+      padding-left: 10%;
+
+      p{
+        font-size: 18px;
+        line-height: 1.5;
+        border-bottom: 1px solid #ccc;
+        padding: 2%;
+
+        span {
+          font-size: 12px;
+          color: gray;
+          display: block;
+        }
+      }
+    }
+}

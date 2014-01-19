@@ -22,7 +22,7 @@
     </div>
     <p class='user-nav'>
       <% if user_signed_in? %>
-        <strong><%= current_user.username %></strong> |
+        <strong><%= link_to current_user.username, user_url(current_user.id) %></strong> |
         <%= link_to 'Edit profile', edit_user_registration_path %> |
         <%= link_to "Logout", destroy_user_session_path, method: :delete %>
       <% else %>

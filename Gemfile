@@ -1,6 +1,7 @@
-
 source 'https://rubygems.org'
 ruby '2.0.0'
+#NewsFeed
+gem 'public_activity'
 #Pagination
 gem 'kaminari'
 #Twitter

@@ -1,4 +1,7 @@
 class Vote < ActiveRecord::Base
+  include PublicActivity::Model
+  tracked except: [:update, :destroy], owner: ->(controller, model) {controller && controller.current_user}
+  tracked except: [:update, :destroy], recipient: ->(controller, model) { model && model.voteable }
 
   scope :for_voter, lambda { |*args| where(["voter_id = ? AND voter_type = ?", args.first.id, args.first.class.base_class.name]) }
   scope :for_voteable, lambda { |*args| where(["voteable_id = ? AND voteable_type = ?", args.first.id, args.first.class.base_class.name]) }

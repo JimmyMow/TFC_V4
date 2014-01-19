@@ -1,0 +1,6 @@
+<% if activity && activity.owner.voted_how?(activity.trackable) == true %>
+  upvoted <%= link_to activity.recipient.title, post_url(activity.recipient.id) %> <span class='activity-time-ago'>about <%= time_ago_in_words(activity.trackable.created_at) %> ago</span>
+
+<% else %>
+  downvoted <%= link_to activity.recipient.title, post_url(activity.recipient.id) %> <span class='activity-time-ago'>about <%= time_ago_in_words(activity.trackable.created_at) %> ago</span>
+<% end %>

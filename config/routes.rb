@@ -15,4 +15,5 @@ TFCV4::Application.routes.draw do
     member { post :upvote }
     member { post :downvote }
   end
+  resources :activities
 end

@@ -1,0 +1,3 @@
+<% if activity %>
+  commented "<%= activity.trackable.content %>" on <%= link_to activity.recipient.title, post_url(activity.trackable.id) %> <span class='activity-time-ago'>about <%= time_ago_in_words(activity.trackable.created_at) %> ago</span>
+<% end %>
