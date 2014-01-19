@@ -1,0 +1,41 @@
+<link rel="stylesheet" type="text/css" href="/mobile/mobile_posts">
+
+<div class="mobile-container">
+  <div class='home-title'>
+    <p id="notice"><%= notice %></p>
+    <h1>
+      <p>FansChallenge: </p>
+      <p>Talk sports with the world.</p>
+    </h1>
+    <div class='index-nav'>
+      <h3>
+        <%= link_to "Most popular posts", posts_url, :class => 'header_link', :id => 'most_popular' %> |
+        <%= link_to "Most recent posts", posts_url(new_post: 'true'), :class => 'header_link', :id => 'most_recent' %></h3>
+      <%#= link_to "Create a post", new_post_url, :class => 'create-a-post' %>
+    </div>
+  </div>
+
+  <% if params[:search] %>
+    <p class='search-paragraph'><%= pluralize(@posts.count, 'result') %> for "<%= "#{params[:search]}" %>"</p>
+  <% end %>
+<div class="posts">
+    <% @posts.each do |post| %>
+      <div class='post'>
+        <section>
+          <p class='post-title'><%= link_to post.title, post_url(post.id) %></p>
+          <p class='post-details'><%= link_to post.user.username, user_url(post.user.id) %>  said this <%= time_ago_in_words(post.created_at) %> ago</p>
+        </section>
+        <aside>
+            <p class='score'><%= pluralize(post.votes_for, 'upvote') %> | <%= pluralize(post.votes_against, 'downvote') %></p>
+          <% if current_user.present? && !current_user.voted_on?(post) %>
+            <p class='voting'><%= link_to "upvote", upvote_post_url(post.id), :method => 'post' %> | <%= link_to 'downvote', downvote_post_url(post.id), :method => 'post' %></p>
+          <% end %>
+          <p class='comment-count'>
+            <%= link_to pluralize(post.comments.count, 'comment'), post_url(post.id) %>
+          </p>
+        </aside>
+      </div>
+    <% end %>
+    <%= paginate @posts if params[:new_post] %>
+  </div>
+</div>

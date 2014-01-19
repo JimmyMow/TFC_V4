@@ -9,7 +9,9 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
+ *= require posts
+ *= require users
+ *= require scaffolds
  */
 .container {
    width: 70%;
@@ -17,6 +19,7 @@
    clear: both;
    padding-top: 2%;
 }
+
 nav {
   clear: both;
 }

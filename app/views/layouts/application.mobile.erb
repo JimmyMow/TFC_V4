@@ -4,7 +4,6 @@
   <title>TheFansChallenge</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= stylesheet_link_tag    "mobile", media: "all", "data-turbolinks-track" => true if mobile_device? %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -13,29 +12,22 @@
 <body>
   <nav>
     <div class="nav-links">
-      <%= link_to 'FansChallenge', posts_url %> |
-      <%= link_to 'Create post', new_post_url %> |
-      <%= form_tag posts_url, :method => 'get', :id => 'search-form' do %>
-        <%= label_tag :search, "Search:" %>
-        <%= text_field_tag :search %>
-        <%= submit_tag "search" %>
-      <% end %>
-    </div>
-    <p class='user-nav'>
+      <%= link_to '<i class="fa fa-home"></i>'.html_safe, posts_url %> |
+      <%= link_to '<i class="fa fa-pencil-square-o"></i> Post'.html_safe, new_post_url %> |
+      <%= link_to "Search", :id => 'search' %> |
+      <%#= form_tag posts_url, :method => 'get', :id => 'search-form' do %>
+        <%#= label_tag :search, "Search:" %>
+        <%#= text_field_tag :search %>
+        <%#= submit_tag "search" %>
+      <%# end %>
       <% if user_signed_in? %>
         <strong><%= link_to current_user.username, user_url(current_user.id) %></strong> |
-        <%= link_to 'Edit profile', edit_user_registration_path %> |
         <%= link_to "Logout", destroy_user_session_path, method: :delete %>
       <% else %>
         <%= link_to "Sign up", new_user_registration_path %> |
         <%= link_to "Login", new_user_session_path %>
       <% end %>
-    </p>
-    <% if mobile_device? %>
-      <%= link_to "Full site", :mobile => 0 %>
-    <% else %>
-      <%= link_to "Mobile site", :mobile => 1 %>
-    <% end %>
+    </div>
   </nav>
 <%= yield %>
 

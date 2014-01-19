@@ -1,0 +1,19 @@
+/*
+*= require_self
+*= require scaffolds
+*= require mobile/mobile_posts
+*/
+.mobile-container {
+   width: 100%;
+   margin: 0 auto;
+   clear: both;
+   padding-top: 2%;
+}
+
+.nav-links {
+  text-align: center;
+}
+
+
+
+
