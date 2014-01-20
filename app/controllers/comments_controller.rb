@@ -27,8 +27,8 @@ def create
 
   respond_to do |format|
     if @c.save
-      format.html { redirect_to @c, notice: 'Post was successfully created.' }
-      format.mobile { redirect_to @c, notice: 'Post was successfully created.' }
+      format.html { redirect_to post_url(params[:post_id]), notice: 'Post was successfully created.' }
+      format.mobile { redirect_to post_url(params[:post_id]), notice: 'Post was successfully created.' }
       format.json { render action: 'show', status: :created, location: @page }
     else
       format.html { render action: 'new' }
