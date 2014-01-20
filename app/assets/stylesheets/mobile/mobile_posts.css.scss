@@ -44,3 +44,81 @@
 
   }
 }
+
+.mobile-container {
+  h1 {
+    text-align: center;
+  }
+  p {
+    font-size: 13px;
+    text-align: center;
+  }
+  .semi-title {
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .field {
+    input, textarea {
+      width: 90%;
+      margin: 0 auto;
+    }
+    .add-pics {
+      font-size: 10px;
+      font-style: italic;
+      text-align: left;
+    }
+
+    .recieve-emails {
+      font-size: 10px;
+      font-weight: bold;
+      text-align: left;
+      font-style: none;
+      display: inline-block;
+    }
+  }
+  .actions {
+    text-align: center;
+  }
+}
+
+.comment-form {
+  textarea {
+    width: 90%;
+    width: 0 auto;
+  }
+
+}
+
+.comments {
+  .comment {
+    border-bottom: 1px solid #ccc;
+    section {
+      .comment-content {
+        font-weight: bold;
+      }
+
+      .comment-user-info {
+        font-size: 10px;
+        font-style: italic;
+      }
+    }
+  }
+}
+
+.show-post {
+  nav {
+    ul {
+      .author {
+        float: left;
+        list-style-type: none;
+        margin: 0;
+      }
+
+      .share {
+        float: right;
+        list-style-type: none;
+      }
+    }
+  }
+}

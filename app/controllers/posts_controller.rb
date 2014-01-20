@@ -62,6 +62,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.mobile { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render action: 'show', status: :created, location: @page }
       else
         format.html { render action: 'new' }
@@ -85,7 +86,7 @@ class PostsController < ApplicationController
     redirect_to :back
   end
 
-    #Make sure users only edit their posts
+  #Make sure users only edit their posts
     def protect_user
       if current_user.id != @post.user.id
         redirect_to post_url(@post.id), notice: "Sorry, you do not have the correct permission."

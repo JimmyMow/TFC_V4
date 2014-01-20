@@ -1,0 +1,34 @@
+<link rel="stylesheet" type="text/css" href="/mobile/mobile_posts">
+<div class="mobile-form-container">
+  <%= form_for(@post) do |f| %>
+    <% if @post.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+        <ul>
+        <% @post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :title %>
+      <%= f.text_field :title, :size => '60%' %>
+    </div>
+    <div class="field">
+      <%= f.label :description %>
+      <%= f.text_area :description, :rows => '5', :cols => '50' %>
+      <p class='add-pics'>Include links and pictures to help make a better post</p>
+      <p class='recieve-emails'>Recieve email notification when users comment <%= f.check_box :notification %></p>
+    </div>
+
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.hidden_field :submitter_id, :value => current_user.id %>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>

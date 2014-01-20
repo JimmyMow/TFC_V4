@@ -1,0 +1,11 @@
+<%= form_tag comments_url, method: 'post', :id => 'comment-form' do %>
+  <%= label_tag :content, 'Comment:' %>
+  <%= text_area_tag :content, nil, :rows => '3', :cols => '70' %>
+
+  <%= hidden_field_tag :user_id, current_user.id if current_user %>
+  <%= hidden_field_tag :post_id, post.id %>
+  <%= hidden_field_tag :submitter_id, current_user.id if current_user %>
+  <div class="action">
+    <%= submit_tag :submit %>
+  </div>
+<% end %>

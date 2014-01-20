@@ -24,16 +24,21 @@ def create
   @c.user_id = params[:user_id]
   @c.post_id = params[:post_id]
   @c.submitter_id = params[:submitter_id]
-  @c.save
+
+  respond_to do |format|
+    if @c.save
+      format.html { redirect_to @c, notice: 'Post was successfully created.' }
+      format.mobile { redirect_to @c, notice: 'Post was successfully created.' }
+      format.json { render action: 'show', status: :created, location: @page }
+    else
+      format.html { render action: 'new' }
+      format.json { render json: @c.errors, status: :unprocessable_entity }
+    end
+  end
 
   if @c.post.notification
     PostNotification.comment_notification(@c.post.user, @c.user, @c.post, @c).deliver
   end
-
-    respond_to do |format|
-      format.html { redirect_to post_url(params[:post_id]) }
-      format.json { head :no_content }
-    end
 end
 
 def update
