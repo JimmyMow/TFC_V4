@@ -9,7 +9,7 @@
     <section class="activity">
       <% @activities.each do |activity| %>
         <p>
-          <%= activity.inspect %>
+          <%= activity.trackable %>
           <%#= activity.owner.username %>
           <%#= render_activity activity %>
         </p>
