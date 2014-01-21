@@ -1,0 +1,3 @@
+<% if activity %>
+  said <%= link_to activity.trackable.title, post_url(activity.trackable.id) %> <span class='activity-time-ago'>about <%= time_ago_in_words(activity.trackable.created_at) %> ago</span>
+<% end %>
