@@ -1,0 +1,28 @@
+.mobile-container {
+  h2 {
+    text-align: center;
+  }
+  .about-user {
+    display: inline-block;
+    p {
+      float: left;
+      padding: 2px;
+      font-size: 11px;
+    }
+    .karma {
+      font-weight: bold;
+    }
+    .user-since {
+      font-style: italic;
+    }
+  }
+
+  .activities {
+    .activity {
+      .act {
+        border-bottom: 1px solid #ccc;
+        padding: 5px;
+      }
+    }
+  }
+}

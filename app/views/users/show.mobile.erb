@@ -1,14 +1,15 @@
+<link rel="stylesheet" type="text/css" href="/mobile/mobile_users">
 <div class="mobile-container">
+  <h2><%= @user.username %></h2>
   <aside class='about-user'>
-    <h2><%= @user.username %></h2>
-    <h4>Score : <%= @user.karma %></h4>
-    <p class='user-since'>Joined the community <%= time_ago_in_words(@user.created_at) %> ago</p>
+    <p class='karma'>Karma: <%= @user.karma %> |</p>
+    <p class='user-since'> Joined the community <%= time_ago_in_words(@user.created_at) %> ago</p>
   </aside>
 
   <div class='activities'>
     <section class="activity">
       <% @activities.each do |activity| %>
-        <p>
+        <p class='act'>
           <%= activity.owner.username %>
           <%= render_activity activity %>
         </p>

@@ -31,11 +31,6 @@
         <%= link_to "Login", new_user_session_path %>
       <% end %>
     </p>
-    <% if mobile_device? %>
-      <%= link_to "Full site", :mobile => 0 %>
-    <% else %>
-      <%= link_to "Mobile site", :mobile => 1 %>
-    <% end %>
   </nav>
 <%= yield %>
 

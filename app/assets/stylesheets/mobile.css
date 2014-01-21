@@ -2,6 +2,7 @@
 *= require_self
 *= require scaffolds
 *= require mobile/mobile_posts
+*= require mobile/mobile_users
 */
 .mobile-container {
    width: 100%;
