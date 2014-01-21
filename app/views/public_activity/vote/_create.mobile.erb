@@ -4,10 +4,10 @@
     <%= link_to activity.recipient.content, post_url(activity.recipient.id) %>
   <% else %>
     <%= link_to activity.recipient.title, post_url(activity.recipient.id) %>
+  <% end %>
   <span class='activity-time-ago'>
     about <%= time_ago_in_words(activity.trackable.created_at) %> ago
   </span>
-  <% end %>
 <% else %>
   downvoted
    <% if activity.recipient.class.to_s == "Comment" %>
