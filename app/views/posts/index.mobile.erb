@@ -4,14 +4,13 @@
   <div class='home-title'>
     <p id="notice"><%= notice %></p>
     <h1>
-      <p>FansChallenge: </p>
-      <p>Talk sports with the world.</p>
+      <p class='header'>FansChallenge: </p>
+      <p class='header'>Talk sports with the world.</p>
     </h1>
     <div class='index-nav'>
       <h3>
         <%= link_to "Most popular posts", posts_url, :class => 'header_link', :id => 'most_popular' %> |
         <%= link_to "Most recent posts", posts_url(new_post: 'true'), :class => 'header_link', :id => 'most_recent' %></h3>
-      <%#= link_to "Create a post", new_post_url, :class => 'create-a-post' %>
     </div>
   </div>
 

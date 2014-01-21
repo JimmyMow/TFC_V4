@@ -16,6 +16,7 @@
 .index-nav {
   text-align: center;
   h3 {
+    margin-bottom: 40px;
     a {
       font-size: 13px;
       margin: 0;
@@ -24,7 +25,7 @@
 }
 
 .posts {
-  text-align: center;
+  text-align: left;
 }
 
 .post {
@@ -49,14 +50,20 @@
   h1 {
     text-align: center;
   }
+
   p {
     font-size: 13px;
+    text-align: left;
+  }
+
+  .header {
     text-align: center;
   }
   .semi-title {
     font-size: 15px;
     font-weight: bold;
     text-align: center;
+    margin-bottom: 40px;
   }
   .field {
     input, textarea {
@@ -108,16 +115,23 @@
 
 .show-post {
   nav {
+    margin-bottom: 40px;
     ul {
+      padding-left: 0;
       .author {
-        float: left;
+        // float: left;
         list-style-type: none;
         margin: 0;
+        display: inline-block;
+        text-align: left;
+        padding: 1px;
       }
 
       .share {
-        float: right;
+        padding: 10px;
+        text-align: left;
         list-style-type: none;
+        display: inline-block;
       }
     }
   }
